@@ -1,6 +1,6 @@
 FROM python:3-alpine
 
-ENV PYPISERVER_VERSION 0.3.29
+ENV PYPISERVER_VERSION 0.3.30
 
 RUN set -ex \
  && apk add --no-cache ca-certificates \
