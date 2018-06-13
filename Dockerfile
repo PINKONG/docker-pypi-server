@@ -1,6 +1,7 @@
 FROM python:3-alpine
 
 ENV PYPISERVER_VERSION 0.3.30
+ENV PYPISERVER_DEPS 'peewee<3.0' 'tornado<5.0'
 
 RUN set -ex \
  && apk add --no-cache ca-certificates \
@@ -12,7 +13,7 @@ RUN set -ex \
     libxml2-dev \
     libxslt-dev \
     curl-dev \
- && PYCURL_SSL_LIBRARY=openssl pip install --no-cache-dir pypi-server[proxy]==${PYPISERVER_VERSION} \
+ && PYCURL_SSL_LIBRARY=openssl pip install --no-cache-dir pypi-server[proxy]==${PYPISERVER_VERSION} ${PYPISERVER_DEPS} \
  && find /usr/local -depth \
     \( -type f -a -name '*.pyc' -o -name '*.pyo' \) \
     -exec rm -rf '{}' + \
