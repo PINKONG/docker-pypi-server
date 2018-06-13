@@ -1,6 +1,6 @@
 FROM python:3-alpine
 
-ENV PYPISERVER_VERSION 0.3.30
+ENV PYPISERVER_VERSION 0.4.7
 ENV PYPISERVER_DEPS 'peewee<3.0' 'tornado<5.0'
 
 RUN set -ex \
